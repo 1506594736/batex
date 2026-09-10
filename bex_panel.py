@@ -6,7 +6,7 @@ from . bex_prefs import get_prefs
 class BATEX_PT_Panel(Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_label = "Batch Fbx export"
+    bl_label = "批量导出 FBX"
     bl_category = "Batex"
     
     def draw(self, context):
@@ -15,7 +15,7 @@ class BATEX_PT_Panel(Panel):
         scene = context.scene
 
         row = layout.row()
-        row.label(text="Export folder:")
+        row.label(text="导出文件夹：")
 
         row = layout.row()
         col = row.column()
@@ -25,22 +25,22 @@ class BATEX_PT_Panel(Panel):
         col.operator('object.bex_ot_openfolder', text='', icon='FILE_TICK')
 
         row = layout.row()
-        row.prop(context.scene, "center_transform", text="Center transform")
+        row.prop(context.scene, "center_transform", text="居中变换")
 
         row = layout.row()
-        row.prop(context.scene, "apply_transform", text="Apply transform")
+        row.prop(context.scene, "apply_transform", text="应用变换")
 
         prefs = get_prefs(context)
         if prefs is not None:
             box = layout.box()
-            box.label(text="Axis conversion:")
+            box.label(text="轴向转换")
 
             row = box.row()
-            row.label(text="Forward:")
+            row.label(text="前向轴：")
             row.prop(prefs, "axis_forward", text="")
 
             row = box.row()
-            row.label(text="Up:")
+            row.label(text="向上轴：")
             row.prop(prefs, "axis_up", text="")
 
         row = layout.row()
@@ -48,7 +48,7 @@ class BATEX_PT_Panel(Panel):
 
         row_smooth = layout.row()
         col_smooth_lbl = row_smooth.column()
-        col_smooth_lbl.label(text="Smoothing:")
+        col_smooth_lbl.label(text="平滑方式：")
 
         col_smooth = row_smooth.column()
         col_smooth.alignment = 'EXPAND'
@@ -58,6 +58,6 @@ class BATEX_PT_Panel(Panel):
         row.prop(context.scene, "export_animations")
 
         row = layout.row()
-        row.operator('object.bex_ot_operator', text='Export')
+        row.operator('object.bex_ot_operator', text='导出')
 
 

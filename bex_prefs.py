@@ -7,23 +7,21 @@ from bpy.types import AddonPreferences
 # "forward" and a different one for "up", so the update callbacks below keep
 # the two selections on different axes instead of limiting the item lists.
 FORWARD_ITEMS = (
-    ('X', "X Forward", "The front of the model points to -X in the exported file"),
-    ('Y', "Y Forward", "The front of the model points to -Y in the exported file "
-                       "(Blender's own axes are kept unchanged, recommended for Unreal Engine)"),
-    ('Z', "Z Forward", "The front of the model points to -Z in the exported file"),
-    ('-X', "-X Forward", "The front of the model points to +X in the exported file"),
-    ('-Y', "-Y Forward", "The front of the model points to +Y in the exported file "
-                         "(rotates the model by 180 degrees)"),
-    ('-Z', "-Z Forward", "The front of the model points to +Z in the exported file (Unity)"),
+    ('X', "X 轴朝前", "模型正面朝 -X"),
+    ('Y', "Y 轴朝前", "模型正面朝 -Y（保持 Blender 原始坐标，推荐 Unreal Engine）"),
+    ('Z', "Z 轴朝前", "模型正面朝 -Z"),
+    ('-X', "-X 轴朝前", "模型正面朝 +X"),
+    ('-Y', "-Y 轴朝前", "模型正面朝 +Y（整体绕竖轴旋转 180°）"),
+    ('-Z', "-Z 轴朝前", "模型正面朝 +Z（Unity）"),
     )
 
 UP_ITEMS = (
-    ('X', "X Up", "Up points to +X in the exported file"),
-    ('Y', "Y Up", "Up points to +Y in the exported file (Unity, Blender's default FBX export)"),
-    ('Z', "Z Up", "Up points to +Z in the exported file (Blender, Unreal Engine)"),
-    ('-X', "-X Up", "Up points to -X in the exported file"),
-    ('-Y', "-Y Up", "Up points to -Y in the exported file"),
-    ('-Z', "-Z Up", "Up points to -Z in the exported file"),
+    ('X', "X 轴朝上", "向上轴为 +X"),
+    ('Y', "Y 轴朝上", "向上轴为 +Y（Unity、Blender 默认 FBX 导出）"),
+    ('Z', "Z 轴朝上", "向上轴为 +Z（Blender、Unreal Engine）"),
+    ('-X', "-X 轴朝上", "向上轴为 -X"),
+    ('-Y', "-Y 轴朝上", "向上轴为 -Y"),
+    ('-Z', "-Z 轴朝上", "向上轴为 -Z"),
     )
 
 
@@ -63,16 +61,16 @@ class BATEX_AddonPreferences(AddonPreferences):
   # Stored in the user preferences, so the choice is remembered the next time
   # Blender is started.
   axis_forward: EnumProperty(
-      name="Forward",
-      description="Axis used as the forward axis in the exported FBX file",
+      name="前向轴",
+      description="导出 FBX 文件时作为前向的轴",
       items=FORWARD_ITEMS,
       default='Y',
       update=update_axis_forward,
       )
 
   axis_up: EnumProperty(
-      name="Up",
-      description="Axis used as the up axis in the exported FBX file",
+      name="向上轴",
+      description="导出 FBX 文件时作为向上的轴",
       items=UP_ITEMS,
       default='Z',
       update=update_axis_up,
