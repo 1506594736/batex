@@ -49,3 +49,8 @@ Blender, `Y` for Unity).
 Forward and Up may never use the same axis - if you pick a colliding
 combination, the Up value is moved to the next axis automatically.
 
+### Credits
+Batex was originally written by [jayanam](https://github.com/jayanam) and is
+released under the [GPL-3.0](LICENSE) license. This fork is maintained by
+[1506594736](https://github.com/1506594736).
+

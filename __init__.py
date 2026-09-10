@@ -1,11 +1,13 @@
 bl_info = {
     "name" : "Batex",
-    "author" : "jayanam",
-    "descrtion" : "Batch export as Fbx",
+    "author" : "1506594736",
+    "description" : "Batch export selected objects as fbx",
+    "version" : (1, 0, 0, 0),
     "blender" : (2, 80, 0),
-    "version" : (0, 7, 0, 0),
     "location" : "Batex panel",
     "warning" : "",
+    "doc_url" : "https://github.com/1506594736/batex",
+    "tracker_url" : "https://github.com/1506594736/batex/issues",
     "category" : "Import-Export"
 }
 
