@@ -2,7 +2,7 @@ bl_info = {
     "name" : "Batex",
     "author" : "1506594736",
     "description" : "批量导出选定对象为 FBX",
-    "version" : (1, 1, 0, 0),
+    "version" : (1, 1, 1, 0),
     "blender" : (2, 80, 0),
     "location" : "3D 视图侧边栏 (N 键) - Batex",
     "warning" : "",

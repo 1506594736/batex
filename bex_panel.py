@@ -6,7 +6,7 @@ from . bex_prefs import get_prefs
 class BATEX_PT_Panel(Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_label = "批量导出 FBX"
+    bl_label = "Batex"
     bl_category = "Batex"
     
     def draw(self, context):
