@@ -1,6 +1,8 @@
 import bpy
 from bpy.types import Panel
 
+from . bex_prefs import get_prefs
+
 class BATEX_PT_Panel(Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -27,6 +29,19 @@ class BATEX_PT_Panel(Panel):
 
         row = layout.row()
         row.prop(context.scene, "apply_transform", text="Apply transform")
+
+        prefs = get_prefs(context)
+        if prefs is not None:
+            box = layout.box()
+            box.label(text="Axis conversion:")
+
+            row = box.row()
+            row.label(text="Forward:")
+            row.prop(prefs, "axis_forward", text="")
+
+            row = box.row()
+            row.label(text="Up:")
+            row.prop(prefs, "axis_up", text="")
 
         row = layout.row()
         row.prop(context.scene, "one_material_ID")

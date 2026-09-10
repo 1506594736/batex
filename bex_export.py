@@ -2,6 +2,7 @@ import bpy
 import bmesh
 import os
 from . bex_utils import *
+from . bex_prefs import get_axis_settings
 
 class BatEx_Export:
 
@@ -17,6 +18,7 @@ class BatEx_Export:
     self.__one_material_id = context.scene.one_material_ID
     self.__export_objects = context.selected_objects
     self.__export_animations = context.scene.export_animations
+    self.__axis_forward, self.__axis_up = get_axis_settings(context)
     self.__mat_faces = {}
     self.__materials = []
   
@@ -115,6 +117,8 @@ class BatEx_Export:
       bake_anim_use_all_actions=self.__export_animations,
       use_armature_deform_only=True,
       bake_space_transform=self.__apply_transform,
+      axis_forward=self.__axis_forward,
+      axis_up=self.__axis_up,
       mesh_smooth_type=self.__context.scene.export_smoothing,
       add_leaf_bones=False,
       path_mode='ABSOLUTE')
